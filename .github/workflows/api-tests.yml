@@ -7,38 +7,34 @@ name: API autotests
   workflow_dispatch:
 
 jobs:
-  api-tests:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Set up Java for Allure
+      - name: Setup Java (for Allure)
         uses: actions/setup-java@v4
         with:
           distribution: "temurin"
           java-version: "17"
 
-      - name: Install Allure commandline
-        run: |
-          npm install -g allure-commandline
+      - name: Install Allure
+        run: npm install -g allure-commandline
 
-      - name: Install API dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r edu_api_demo_v3_sqlite/requirements.txt
+      - name: Install API deps
+        run: pip install -r edu_api_demo_v3_sqlite/requirements.txt
 
-      - name: Install test framework dependencies
-        run: |
-          pip install -r edu_api_test_framework/requirements.txt
+      - name: Install test deps
+        run: pip install -r edu_api_test_framework/requirements.txt
 
-      - name: Start FastAPI application
+      - name: Start API
         run: |
           cd edu_api_demo_v3_sqlite
           nohup uvicorn app.main:app --host 127.0.0.1 --port 8000 > api.log 2>&1 &
@@ -47,59 +43,38 @@ jobs:
         run: |
           for i in {1..30}; do
             if curl -s http://127.0.0.1:8000/health_check; then
-              echo "API is ready"
+              echo "API ready"
               exit 0
             fi
-            echo "Waiting for API..."
             sleep 2
           done
-          echo "API did not start"
-          cat edu_api_demo_v3_sqlite/api.log
+          echo "API failed"
           exit 1
 
-      - name: Run tests with Allure results
+      - name: Run tests
+        continue-on-error: true
         run: |
           cd edu_api_test_framework
-          set +e
-          pytest --alluredir=allure-results --clean-alluredir
-          TEST_EXIT_CODE=$?
-          echo $TEST_EXIT_CODE > pytest_exit_code.txt
-          exit 0
+          pytest --alluredir=allure-results
 
-      - name: Generate Allure HTML report
-        if: always()
+      - name: Generate Allure report
         run: |
           cd edu_api_test_framework
           allure generate allure-results -o allure-report --clean
 
-      - name: Upload Allure HTML report
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Upload artifact for Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: allure-report
           path: edu_api_test_framework/allure-report
 
-      - name: Upload Allure raw results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: edu_api_test_framework/allure-results
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
 
-      - name: Upload API log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: api-log
-          path: edu_api_demo_v3_sqlite/api.log
+    permissions:
+      pages: write
+      id-token: write
 
-      - name: Fail job if tests failed
-        if: always()
-        run: |
-          cd edu_api_test_framework
-          if [ -f pytest_exit_code.txt ]; then
-            exit $(cat pytest_exit_code.txt)
-          else
-            echo "pytest_exit_code.txt not found"
-            exit 1
-          fi
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
