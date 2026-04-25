@@ -1,0 +1,5 @@
+GET http://127.0.0.1:8000/api/student/unauth/courses
+
+Status: 200
+
+{"items":[{"id":1,"title":"Python API Testing","description":"REST API testing with pytest, requests, Schemathesis and Allure.","price":15000,"is_published":true,"rating":4.7},{"id":2,"title":"Manual QA Fundamentals","description":"Checklists, test cases, bug reports and test design.","price":9000,"is_published":true,"rating":4.5}],"count":2}

@@ -1,0 +1,5 @@
+POST http://127.0.0.1:8000/api/student/courses/1/buy
+
+Status: 409
+
+{"type":"https://api.edu-demo.local/problems/course-already-purchased","title":"Course already purchased","status":409,"detail":"User has already purchased this course.","code":"COURSE_ALREADY_PURCHASED","field":"course_id"}

@@ -1,0 +1,6 @@
+pytest==8.3.4
+requests==2.32.3
+allure-pytest==2.13.5
+schemathesis==3.39.16
+python-dotenv==1.0.1
+faker==33.1.0

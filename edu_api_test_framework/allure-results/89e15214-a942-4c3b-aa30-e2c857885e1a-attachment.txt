@@ -1,0 +1,5 @@
+POST http://127.0.0.1:8000/api/student/auth/register
+
+Status: 409
+
+{"type":"https://api.edu-demo.local/problems/duplicate-email","title":"Email already exists","status":409,"detail":"User with this email already exists.","code":"DUPLICATE_EMAIL","field":"email"}

@@ -1,0 +1,33 @@
+======================= Schemathesis test session starts =======================
+Schema location: http://127.0.0.1:8000/openapi.json
+Base URL: http://127.0.0.1:8000/
+Specification version: Open API 3.0.3
+Random seed: 4355362919148586936059052089059608896
+Workers: 1
+Collected API operations: 11
+Collected API links: 0
+API probing: ...
+API probing: SUCCESS
+Schema analysis: ...
+Schema analysis: SKIP
+
+GET /health_check .                                                       [  9%]
+GET /version .                                                            [ 18%]
+GET /api/student/profile .                                                [ 27%]
+GET /api/student/themes .                                                 [ 36%]
+GET /api/student/unauth/courses .                                         [ 45%]
+GET /api/student/unauth/courses/{course_id} .                             [ 54%]
+GET /api/student/courses .                                                [ 63%]
+GET /api/student/courses/{course_id}/sections .                           [ 72%]
+GET /api/student/courses/{course_id}/sections/{section_id}/lessons .      [ 81%]
+GET /api/student/courses/{course_id}/ratings .                            [ 90%]
+GET /api/student/payments/{payment_id} .                                  [100%]
+
+=================================== SUMMARY ====================================
+
+Performed checks:
+    not_a_server_error                    65 / 65 passed          PASSED 
+
+WARNING: `GET /api/student/payments/{payment_id}` returned only 4xx responses during unit tests. Check base URL or adjust data generation settings
+
+============================== 11 passed in 0.59s ==============================

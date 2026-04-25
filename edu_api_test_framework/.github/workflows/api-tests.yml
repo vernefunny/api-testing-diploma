@@ -1,0 +1,80 @@
+name: API tests
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+  workflow_dispatch:
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+
+    env:
+      BASE_URL: http://127.0.0.1:8000
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install API dependencies
+        working-directory: ./edu_api_demo_v3_sqlite
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Start API
+        working-directory: ./edu_api_demo_v3_sqlite
+        run: |
+          nohup uvicorn app.main:app --host 127.0.0.1 --port 8000 > api.log 2>&1 &
+
+      - name: Wait for API
+        run: |
+          python - <<'PY'
+          import time
+          import requests
+
+          url = "http://127.0.0.1:8000/health_check"
+
+          for _ in range(30):
+              try:
+                  response = requests.get(url, timeout=2)
+                  if response.status_code == 200:
+                      print("API is ready")
+                      break
+              except Exception:
+                  pass
+              time.sleep(1)
+          else:
+              raise SystemExit("API did not start")
+          PY
+
+      - name: Install test framework dependencies
+        working-directory: ./edu_api_test_framework
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run pytest API tests
+        working-directory: ./edu_api_test_framework
+        run: |
+          pytest --alluredir=allure-results
+
+      - name: Upload Allure raw results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: ./edu_api_test_framework/allure-results
+
+      - name: Upload API log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-log
+          path: ./edu_api_demo_v3_sqlite/api.log

@@ -1,0 +1,5 @@
+POST http://127.0.0.1:8000/api/student/payments/19262941-7d9c-4d0a-a084-7392bdf64a05/installments
+
+Status: 201
+
+{"message":"Installment request created.","installment":{"id":"c4779c22-b5bd-4333-9052-bc9570a15620","payment_id":"19262941-7d9c-4d0a-a084-7392bdf64a05","installments_count":12,"installments_term":6,"status":"pending"}}
