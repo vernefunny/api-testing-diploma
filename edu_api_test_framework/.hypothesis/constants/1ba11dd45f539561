@@ -1,0 +1,4 @@
+# file: E:\edu_api_test_framework\framework\config.py
+# hypothesis_version: 6.152.2
+
+['BASE_URL']

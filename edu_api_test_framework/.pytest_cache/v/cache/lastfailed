@@ -1,0 +1,16 @@
+{
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[POST /api/student/auth/logout]": true,
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[GET /api/student/profile]": true,
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[POST /api/student/profile]": true,
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[GET /api/student/unauth/courses/{course_id}]": true,
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[GET /api/student/courses]": true,
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[POST /api/student/courses/{course_id}/buy]": true,
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[POST /api/student/courses/{course_id}/refund]": true,
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[GET /api/student/courses/{course_id}/sections]": true,
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[GET /api/student/courses/{course_id}/sections/{section_id}/lessons]": true,
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[PATCH /api/student/courses/{course_id}/complete-lesson/{lesson_id}]": true,
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[POST /api/student/courses/{course_id}/ratings]": true,
+  "tests/contracts/test_schemathesis_contract.py::test_api_contract_no_server_errors[GET /api/student/courses/{course_id}/ratings]": true,
+  "tests/test_allure_check.py::test_allure_must_show_failure": true,
+  "tests/contracts/test_schemathesis_contract.py::test_schemathesis_public_and_stable_api": true
+}

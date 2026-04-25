@@ -1,0 +1,5 @@
+POST http://127.0.0.1:8000/api/student/auth/login
+
+Status: 200
+
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxODMiLCJlbWFpbCI6InN0dWRlbnRfZTI5YTJmOTQtNjNiNi00MjVkLWFlYTItNzQxNjI4N2VmZWFjQGV4YW1wbGUuY29tIiwicm9sZSI6InN0dWRlbnQiLCJpYXQiOjE3NzcxMzc2NDAsImV4cCI6MTc3NzE0MTI0MH0.SxmEPfrmlKlZLkn5PrFlPK0JJfAAQfc8O7ObEp2ir2E","token_type":"bearer"}

@@ -1,0 +1,5 @@
+POST http://127.0.0.1:8000/api/student/profile
+
+Status: 200
+
+{"message":"Profile updated successfully.","user":{"id":182,"email":"student_b4e0c763-9912-4c85-a161-089c2de7f6b9@example.com","full_name":"Alexander Updated","birth_date":"1998-09-30","age":27,"status":"active","role":"student","receive_marketing_messages":true,"created_at":"2026-04-25T17:20:40.069178","updated_at":"2026-04-25T17:20:40.138411"}}

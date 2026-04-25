@@ -1,0 +1,4 @@
+# file: E:\edu_api_test_framework\framework\payloads.py
+# hypothesis_version: 6.152.2
+
+['1998-09-30', '2000-09-30', 'Alexander Petrov', 'Alexander Updated', 'Password1!', 'birth_date', 'email', 'full_name', 'password', 'student']

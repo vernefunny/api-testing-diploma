@@ -1,0 +1,52 @@
+======================= Schemathesis test session starts =======================
+Schema location: http://127.0.0.1:8000/openapi.json
+Base URL: http://127.0.0.1:8000/
+Specification version: Open API 3.0.3
+Random seed: 265986054090907626951020624326708725109
+Workers: 1
+Collected API operations: 23
+Collected API links: 0
+API probing: ...
+API probing: SUCCESS
+Schema analysis: ...
+Schema analysis: SKIP
+
+GET /health_check .                                                       [  4%]
+GET /version .                                                            [  8%]
+POST /api/student/auth/register .                                         [ 13%]
+POST /api/student/auth/login .                                            [ 17%]
+POST /api/student/auth/logout .                                           [ 21%]
+GET /api/student/profile .                                                [ 26%]
+POST /api/student/profile .                                               [ 30%]
+POST /api/student/profile/interests .                                     [ 34%]
+GET /api/student/themes .                                                 [ 39%]
+GET /api/student/unauth/courses .                                         [ 43%]
+GET /api/student/unauth/courses/{course_id} .                             [ 47%]
+GET /api/student/courses .                                                [ 52%]
+POST /api/student/courses/{course_id}/buy .                               [ 56%]
+POST /api/student/courses/{course_id}/refund .                            [ 60%]
+GET /api/student/courses/{course_id}/sections .                           [ 65%]
+GET /api/student/courses/{course_id}/sections/{section_id}/lessons .      [ 69%]
+PATCH /api/student/courses/{course_id}/complete-lesson/{lesson_id} .      [ 73%]
+POST /api/student/courses/{course_id}/ratings .                           [ 78%]
+GET /api/student/courses/{course_id}/ratings .                            [ 82%]
+POST /api/student/courses/{course_id}/complaints .                        [ 86%]
+GET /api/student/payments/{payment_id} .                                  [ 91%]
+POST /api/student/payments/{payment_id}/installments .                    [ 95%]
+POST /api/student/support/send-email .                                    [100%]
+
+=================================== SUMMARY ====================================
+
+Performed checks:
+    not_a_server_error                    176 / 176 passed          PASSED 
+
+WARNINGS:
+  - Most of the responses from `POST /api/student/auth/login` have a 401 status code. Did you specify proper API credentials?
+  - Most of the responses from `PATCH /api/student/courses/{course_id}/complete-lesson/{lesson_id}` have a 403 status code. Did you specify proper API credentials?
+  - `POST /api/student/auth/register` returned only 4xx responses during unit tests. Check base URL or adjust data generation settings
+  - `POST /api/student/profile/interests` returned only 4xx responses during unit tests. Check base URL or adjust data generation settings
+  - `POST /api/student/courses/{course_id}/ratings` returned only 4xx responses during unit tests. Check base URL or adjust data generation settings
+  - `GET /api/student/payments/{payment_id}` returned only 4xx responses during unit tests. Check base URL or adjust data generation settings
+  - `POST /api/student/payments/{payment_id}/installments` returned only 4xx responses during unit tests. Check base URL or adjust data generation settings
+
+============================== 23 passed in 1.67s ==============================

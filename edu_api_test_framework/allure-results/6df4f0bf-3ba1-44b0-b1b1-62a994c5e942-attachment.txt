@@ -1,0 +1,5 @@
+POST http://127.0.0.1:8000/api/student/payments/48aee29d-864d-4770-8999-41225ecc5fde/installments
+
+Status: 422
+
+{"type":"https://api.edu-demo.local/problems/validation-error","title":"Request validation failed","status":422,"detail":"One or more fields are invalid.","code":"VALIDATION_ERROR","errors":[{"field":"installments_count","code":"VALIDATION_ERROR","message":"Input should be greater than or equal to 2"}]}

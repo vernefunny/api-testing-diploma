@@ -1,0 +1,4 @@
+# file: E:\edu_api_test_framework\framework\api_client.py
+# hypothesis_version: 6.152.2
+
+['/', 'Accept', 'Authorization', 'DELETE', 'GET', 'HTTP response', 'PATCH', 'POST', 'application/json', 'headers']

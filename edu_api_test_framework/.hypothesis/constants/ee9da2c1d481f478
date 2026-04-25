@@ -1,0 +1,4 @@
+# file: E:\edu_api_test_framework\conftest.py
+# hypothesis_version: 6.152.2
+
+[200, 201, 'access_token', 'auth', 'courses', 'email', 'password', 'payments', 'profile', 'register_response']

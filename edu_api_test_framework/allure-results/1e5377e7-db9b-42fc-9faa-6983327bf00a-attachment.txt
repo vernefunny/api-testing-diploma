@@ -1,0 +1,5 @@
+POST http://127.0.0.1:8000/api/student/auth/login
+
+Status: 401
+
+{"type":"https://api.edu-demo.local/problems/invalid-credentials","title":"Invalid credentials","status":401,"detail":"Email or password is invalid.","code":"INVALID_CREDENTIALS","field":null}

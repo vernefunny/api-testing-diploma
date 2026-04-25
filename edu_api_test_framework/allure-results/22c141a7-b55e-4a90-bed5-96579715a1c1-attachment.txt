@@ -1,0 +1,5 @@
+PATCH http://127.0.0.1:8000/api/student/courses/1/complete-lesson/1
+
+Status: 200
+
+{"message":"Lesson completed successfully.","course_id":1,"lesson_id":1}

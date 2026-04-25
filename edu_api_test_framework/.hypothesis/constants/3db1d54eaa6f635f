@@ -1,0 +1,4 @@
+# file: E:\edu_api_test_framework\framework\assertions.py
+# hypothesis_version: 6.152.2
+
+['code', 'detail', 'status', 'title']
