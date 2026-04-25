@@ -82,9 +82,6 @@ jobs:
   steps:
     - name: Deploy to GitHub Pages
       uses: actions/deploy-pages@v4
-    - name: Print Allure URL
-      run: |
-        echo "Allure report: https://vernefunny.github.io/api-testing-diploma/"
 
 
 	
