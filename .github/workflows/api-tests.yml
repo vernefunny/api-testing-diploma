@@ -58,11 +58,13 @@ jobs:
           exit 1
 
       - name: Run tests with Allure results
-        continue-on-error: true
         run: |
           cd edu_api_test_framework
+          set +e
           pytest --alluredir=allure-results --clean-alluredir
-          echo $? > pytest_exit_code.txt
+          TEST_EXIT_CODE=$?
+          echo $TEST_EXIT_CODE > pytest_exit_code.txt
+          exit 0
 
       - name: Generate Allure HTML report
         if: always()
@@ -92,6 +94,12 @@ jobs:
           path: edu_api_demo_v3_sqlite/api.log
 
       - name: Fail job if tests failed
+        if: always()
         run: |
           cd edu_api_test_framework
-          exit $(cat pytest_exit_code.txt)
+          if [ -f pytest_exit_code.txt ]; then
+            exit $(cat pytest_exit_code.txt)
+          else
+            echo "pytest_exit_code.txt not found"
+            exit 1
+          fi
