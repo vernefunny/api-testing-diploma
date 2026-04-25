@@ -68,13 +68,22 @@ jobs:
           path: edu_api_test_framework/allure-report
 
   deploy:
-    needs: test
-    runs-on: ubuntu-latest
+  needs: test
+  runs-on: ubuntu-latest
 
-    permissions:
-      pages: write
-      id-token: write
+  environment:
+    name: github-pages
+    url: https://vernefunny.github.io/api-testing-diploma/
 
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+  permissions:
+    pages: write
+    id-token: write
+
+  steps:
+    - name: Deploy to GitHub Pages
+      uses: actions/deploy-pages@v4
+
+    - name: Print Allure URL
+      run: echo "Allure report: https://vernefunny.github.io/api-testing-diploma/"
+
+	
