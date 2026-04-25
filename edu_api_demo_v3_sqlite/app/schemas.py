@@ -95,6 +95,8 @@ class SetInterestsRequest(BaseModel):
             raise ValueError("Interest IDs must be unique.")
         if any(item <= 0 for item in value):
             raise ValueError("Interest IDs must be positive integers.")
+        if any(item > 2147483647 for item in value):
+            raise ValueError("Interest IDs must not be greater than 2147483647.")
         return value
 
 
