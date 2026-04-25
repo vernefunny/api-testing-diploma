@@ -1,1 +1,0 @@
-E:\edu_api_test_framework\.venv\Scripts\schemathesis.EXE run http://127.0.0.1:8000/openapi.json --checks not_a_server_error --hypothesis-max-examples 10 --hypothesis-suppress-health-check filter_too_much,too_slow --header Authorization: Bearer <TOKEN> --include-method GET --exclude-path-regex ^/api/student/payments/.* --exclude-path-regex ^/debug/.*

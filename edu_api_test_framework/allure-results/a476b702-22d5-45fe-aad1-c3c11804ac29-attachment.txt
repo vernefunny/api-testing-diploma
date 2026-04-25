@@ -1,5 +1,0 @@
-POST http://127.0.0.1:8000/api/student/profile/interests
-
-Status: 422
-
-{"type":"https://api.edu-demo.local/problems/validation-error","title":"Request validation failed","status":422,"detail":"One or more fields are invalid.","code":"VALIDATION_ERROR","errors":[{"field":"interestIds","code":"VALIDATION_ERROR","message":"Value error, Interest IDs must be unique."}]}

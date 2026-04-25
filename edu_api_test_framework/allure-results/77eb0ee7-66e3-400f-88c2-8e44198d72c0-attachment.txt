@@ -1,5 +1,0 @@
-POST http://127.0.0.1:8000/api/student/profile/interests
-
-Status: 200
-
-{"message":"Interests updated successfully.","interestIds":[1,2,3]}

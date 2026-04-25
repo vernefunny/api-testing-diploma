@@ -1,3 +1,4 @@
+# Python
 .venv/
 venv/
 __pycache__/
@@ -5,19 +6,27 @@ __pycache__/
 *.pyo
 *.pyd
 
+# DB
 *.db
 *.sqlite
 *.sqlite3
 
+# Test artifacts
 allure-results/
 allure-report/
 .pytest_cache/
+.hypothesis/
 
+# Env
 .env
+
+# Logs
 *.log
 
+# IDE
 .idea/
 .vscode/
 
+# OS
 .DS_Store
 Thumbs.db

@@ -1,5 +1,0 @@
-GET http://127.0.0.1:8000/api/student/payments/aa57b964-3efa-42b6-9f18-c41667577af1
-
-Status: 200
-
-{"id":"aa57b964-3efa-42b6-9f18-c41667577af1","course_id":1,"amount":15000,"status":"paid"}
