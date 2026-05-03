@@ -1,5 +1,0 @@
-POST http://127.0.0.1:8000/api/student/auth/register
-
-Status: 201
-
-{"message":"Student registered successfully.","user":{"id":171,"email":"student_97b876a4-2472-454f-9655-f13c28e72ddc@example.com","full_name":"Alexander Petrov","birth_date":"2000-09-30","age":25,"status":"active","role":"student","receive_marketing_messages":false,"created_at":"2026-04-25T17:20:33.816524","updated_at":"2026-04-25T17:20:33.816528"}}

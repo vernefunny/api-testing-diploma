@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set "VIRTUAL_ENV=E:\edu_api_test_framework\.venv"
+set "VIRTUAL_ENV=E:\api-testing-diploma\edu_api_test_framework\.venv"
 
 if not defined PROMPT set PROMPT=$P$G
 

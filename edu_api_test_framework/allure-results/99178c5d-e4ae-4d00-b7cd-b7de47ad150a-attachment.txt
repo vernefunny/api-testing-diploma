@@ -1,5 +1,0 @@
-GET http://127.0.0.1:8000/api/student/unauth/courses
-
-Status: 422
-
-{"type":"https://api.edu-demo.local/problems/invalid-price-range","title":"Invalid price range","status":422,"detail":"min_price must be less than or equal to max_price.","code":"INVALID_PRICE_RANGE","field":null}

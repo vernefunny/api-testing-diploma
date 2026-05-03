@@ -1,5 +1,0 @@
-POST http://127.0.0.1:8000/api/student/courses/1/buy
-
-Status: 201
-
-{"message":"Course purchased successfully.","course_id":1,"payment":{"id":"2d48eaaa-a423-4ebc-b530-0412aa3b75e4","status":"paid","amount":15000,"currency":"RUB"}}

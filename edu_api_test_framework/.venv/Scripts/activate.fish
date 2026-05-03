@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV 'E:\edu_api_test_framework\.venv'
+set -gx VIRTUAL_ENV 'E:\api-testing-diploma\edu_api_test_framework\.venv'
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"Scripts $PATH
